@@ -38,13 +38,13 @@ public class Replace {
         tableName = name;
     }
 
-    public List<Map<String, String>> json(String result) {
+    public List<Map<String, String>> json(String result,String referenceValue) {
         List<Map<String, String>> list = new ArrayList<Map<String, String>>();
         try {
 
             Map<String, String> map = new HashMap<String, String>();
             JSONObject rootJSON = new JSONObject(result);
-            JSONArray arrayJson = rootJSON.getJSONArray("list");
+            JSONArray arrayJson = rootJSON.getJSONArray(referenceValue);
             for (int i = 0; i < arrayJson.length(); i++) {
                 JSONObject data = arrayJson.getJSONObject(i);
                 map = new HashMap<String, String>();
